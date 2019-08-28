@@ -1,0 +1,123 @@
+/*a  upload */
+
+body, html{
+    padding: 0px;
+    margin: 0px;
+    width:100%;
+    height: 100%;
+    background-color:  #737f8a;
+    font-size: 30px;
+}
+.upload-page {
+    height: 756px;
+    background-color: #353b43;
+    width:1607px;
+}
+
+
+.a-upload, .submit, .experiment_id, .select{
+    margin: 0px 0px;
+    padding: 0px 0px;
+    line-height: 30px;
+    cursor: pointer;
+    color: #ddd;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    text-align: center;
+}
+
+
+.a-upload:hover, .submit:hover, .select:hover{
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+.a-upload, .a-upload input {
+    position: absolute;
+    top: 490px;
+    left: 697px;
+}
+
+.submit{
+    position: absolute;
+    top: 610px;
+    left: 697px;
+}
+
+.submit, .a-upload {
+    width: 230px;
+    height: 60px;
+    line-height: 60px;
+}
+
+
+
+
+.btn{
+    padding: 0px;
+    margin: 0px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+}
+.a-upload input{
+    margin: 0px 0px;
+    padding: 0px 0px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+     position: relative;
+    top: -65px;
+    left: 0px;
+    width: 230px;
+    height: 60px;
+ }
+
+.select {
+    position: absolute;
+    top: 224px;
+    left: 454px;
+    width: 703px;
+    height: 184px;
+    text-align: left;
+    font-size: 23px;
+    font-family: "Jura";
+}
+
+
+.title{
+    font-size: 60px;
+    background-color: transparent;
+    color: #ddd;
+    position: absolute;
+    top: 30px;
+    left: 393px;
+}
+
+.choose {
+    padding-left: 173px;
+}
+
+.element {
+    position: absolute;
+    top: 131px;
+    left: 643px;
+    color: #ddd;
+    font-size: 40px;
+}

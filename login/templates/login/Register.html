@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>User Registration Page</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../static/css/style-diy.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../static/css/form-elements.css">
+        <link rel="stylesheet" href="../../static/css/style.css">
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="../../static/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../../static/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+    <style>
+            .main{
+                text-align: center; 
+                position: center;
+            }
+            .login_btn{
+                display: inline-block;
+                padding: 7px 20px;
+                border-radius: 25px;
+                text-decoration: none;
+                color: #FFF;
+                background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+                background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+                transition: .4s;
+            }
+
+            .login_btn:hover {
+                background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+                background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+            }
+    </style>
+    <body>
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <h1><strong>Mass Spectrometry Data Analysis</strong></h1>
+                            <h1>User Registration</h1>
+                            <div class="description">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Register a new account!</h3>
+                            		<p>Please enter your personal details:</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="register_user_info/" method="post" class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">Username</label>
+			                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">Password</label>
+			                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+			                        </div>
+                                    <div class="main">
+                                        <button type="submit" class="login_btn"><strong>SIGN UP WITH COMMON ACCOUNT</strong></button>
+                                    </div>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div>
+                            <a class="square_btn" href="{% url 'login:login' %}">
+                                Already have an account? SIGN IN NOW!!!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Javascript -->
+        <script src="../../static/js/jquery-1.11.1.min.js"></script>
+        <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../static/js/jquery.backstretch.min.js"></script>
+        <script src="../../static/js/scripts.js"></script>
+    </body>
+</html>
