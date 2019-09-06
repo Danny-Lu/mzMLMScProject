@@ -16,7 +16,6 @@ print(abs_path)
 sys.path.append(abs_path)
 que = queue.Queue()
 from source.motifBlastScript import run
-
 ms_list = []
 x_list = []
 y_list = []
@@ -26,20 +25,13 @@ radiis = []
 colors = []
 overlap_scores = []
 
-# @login_required()
-# Create your views here.
-# Create your views here.
-
 def get_data(request):
     return render_to_response("search/search.html")
-
-# 数据分析，客户端访问，开线程运行数
-# 据分析程序motifBlastScript.py，线程之间通过管道通信分析结果返回给前端
+#Data analysis, client access, open thread run count
+#According to the analysis program motifBlastScript.py, the thread is returned to the front end through the pipeline communication analysis result.
 
 def data_analyse(request):
-
     if request.method == 'POST':
-
         file_obj = request.FILES.get('file')
         if file_obj:
             motifs_name = request.POST.get('motifs_name')
@@ -63,7 +55,6 @@ def data_analyse(request):
             result = motif_m2m + "\n" + result_str + "\n\n"
             result = {"info": result}
             return JsonResponse(result)
-
         else:
             result = que.get()
             ms_list.append(result)
@@ -80,7 +71,7 @@ def data_analyse(request):
             result = motif_m2m + "\n" + result_str + "\n\n"
             result = {"info": result}
             return JsonResponse(result)
-        # 画图
+        #Draw
     else:
         for ms in ms_list:
             global radiis
@@ -112,9 +103,7 @@ def data_analyse(request):
                 color = '#57e096'
             colors.append(color)
             radiis.append(200)
-
         return JsonResponse({"hello": "hello"})
-
 
 def ms_scatter(request):
     data = {
@@ -125,8 +114,6 @@ def ms_scatter(request):
         "radius": radiis,
         "colors": colors,
         "overlap_score": overlap_scores
-
-
     }
     source = ColumnDataSource(data)
     hover1 = HoverTool(tooltips=[("(x, y)", "($x, $y)"),
@@ -136,12 +123,10 @@ def ms_scatter(request):
     TOOLS = "pan,wheel_zoom,zoom_in,zoom_out,box_zoom,undo," \
             "redo,reset,tap,save,box_select,poly_select,lasso_select,"
     p = figure(tools=TOOLS, width=1200, height=600, x_axis_label="RT", y_axis_label="M/Z")
-
     p.scatter(x="x_list", y="y_list", source=source, radius="radius",
               fill_color="colors", fill_alpha=0.6,
               line_color=None)
     p.add_tools(hover1)
     output_file("color_scatter.html", title="color_scatter.py example")
     script, div = components(p)
-
     return render(request, "search/scatter.html", {'script': script, 'div': div})

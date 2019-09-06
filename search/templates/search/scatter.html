@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="../../static/css/style-diy.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link href="https://fonts.googleapis.com/css?family=Jura:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../static/search/css/scatter.css">
     <style class="bk" type="text/css">.bk-root {
     position: relative;
@@ -727,6 +727,14 @@
   border: none;
   padding: 1px;
 }
+.title-font{
+  font-family: 'Jura';
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 45px;
+  padding-top: 8px;
+}
 </style>
       <meta charset="utf-8">
       <title>color_scatter.py example</title>
@@ -737,9 +745,11 @@
       {{ script | safe }}
   </head>
 <body>
-<p1 class="name">The Scatter Plot of the Mass Spectrometry Data Analysis</p1>
-    <div class="block">
-        {{ div |safe }}
-    </div>
+<p class="title-font">The Scatter Plot of the Mass Spectrometry Data Analysis</p>
+    <div class="bokeh-padding">
+        <div class="block">
+          {{ div |safe }}
+        </div>
+    </div> 
 </body>
 </html>

@@ -1,14 +1,11 @@
 $(document).ready(function () {
     $('.submit').click(function () {
         FileUpload();
-
     });
-
 });
-
+//File Upload
 function FileUpload() {
     var form_data = new FormData();
-
     var file_info = $('#file_upload')[0].files[0];
     var chk_value = jqchk();
     if(file_info && (chk_value.length != 0) && ($('#file_upload').val().split('.')[1] === "mzML")){
@@ -18,12 +15,9 @@ function FileUpload() {
         var label2 = ".select"
         alert(chk_value);
         alert("file upload");
-        // addProgress();
         changeColorWhite(label1);
         changeColorWhite(label2)
         shortLink(form_data);
-
-
     }
     else{
         var label1 = ".a-upload";
@@ -35,13 +29,10 @@ function FileUpload() {
         alert("mzMLFile not Found!!!");
         var label = ".a-upload";
         changeColorRed(label);
-
     }else{
         var label = ".a-upload";
         changeColorWhite(label)
     }
-
-
     if(chk_value.length == 0){
         alert("Motits not Found!!!");
         var label = ".select";
@@ -53,13 +44,8 @@ function FileUpload() {
     if ($('#file_upload').val().split('.')[1] !== 'mzML'){
         alert("mzMLFile only!!!")
     }
-
-
-
-
-
 }
-//请求并发送文件和查询的数据库
+//Request and send a file to the query database
 function shortLink(form_data){
      $.ajax({
         url:"/search/data_analyse/" ,
@@ -73,15 +59,13 @@ function shortLink(form_data){
              saveAs();
              scatter();
              langLink();
-
         },
         error: function (err) {
-            alert("ajax错误代码："+err.status);
+            alert("ajax error code："+err.status);
         }
     });
-     // langLink();
 }
-//ajax轮询
+//AJAX polling
 function langLink(){
     $.ajax({
         url:"/search/data_analyse/" ,
@@ -97,7 +81,7 @@ function langLink(){
         },
     });
 }
-//jquery获取复选框值
+//jQuery gets the checkbox value
 function jqchk() {
  var chk_value = [];
  $('.select input[name="checkbox"]:checked').each(function () {
@@ -105,7 +89,7 @@ function jqchk() {
  });
  return chk_value;
 }
-//动态增加显示textarea
+//Dynamic display(increase) of textarea
 function showPage(data) {
             $(".return").css({
                 width: "1600px",
@@ -114,7 +98,7 @@ function showPage(data) {
                 marginTop: "60px"
             });
             $(".return").append("<textarea class='show'></textarea>")
-
+            
             $(".show").css({
                 margin: "20px 68px auto",
                 width: "1000px",
@@ -127,38 +111,31 @@ function showPage(data) {
                 position: "absolute",
                 top: "866px",
                 left: "215px"
-
             });
             showData(data)
             var scroll_offset = $(".show").offset();
             $("body, html").animate({
                 scrollTop: scroll_offset.top,
             }, 0);
-
-
 }
-
-//动态加载数据至前端
+//Dynamically load data to the front end.
 function showData(data) {
     $(".show").append(data["info"]+"<br>");
 }
-
-
-//提醒
+//Notification
 function changeColorRed(html){
     $(html).css({
         border: "1px solid #DD3231"
     });
 }
-
 function changeColorWhite(html) {
     $(html).css({
         border: "1px solid #ddd"
     });
 }
-//动态加载save标签
+//Dynamically loading save tags
 function  saveAs() {
-    $(".return").append("<div class='save'>save</div>");
+    $(".return").append("<div class='save'>Save as TXT</div>");
     $(".save").css({
         width: "230px",
         height: "60px",
@@ -171,8 +148,6 @@ function  saveAs() {
         position: "relative",
         top: "575px",
         left: "696px",
-        // backgroundColor: "transparent",
-
     });
     $(".save").hover(function () {
         $(".save").css({
@@ -195,36 +170,35 @@ function  saveAs() {
     var eleButton = document.querySelector('.save');
 if ('download' in document.createElement('a')) {
 
-    // 下载内容
+//Download content
     eleButton.addEventListener('click', function () {
         var content = eleTextarea.value.replace(/<br>/g, "\n");
-
         funDownload( content,'data.txt');
     });
 } else {
     eleButton.onclick = function () {
-        alert('浏览器不支持');
+        alert('Browser does not support');
     };
 }
 }
-
-// 下载textarea 内容
+//Download textarea content
 var funDownload = function (content, filename) {
 
     var eleLink = document.createElement('a');
     eleLink.download = filename;
     eleLink.style.display = 'none';
-    // 字符内容转变成blob地址
+    //Convert character content to blob address
     var blob = new Blob([content]);
     eleLink.href = URL.createObjectURL(blob);
-    // 触发点击
+    //Trigger click
     document.body.appendChild(eleLink);
     eleLink.click();
-    // 然后移除
+    //Then remove
     document.body.removeChild(eleLink);
 }
+//Dynamically loading scatter tags
 function  scatter() {
-    $(".return").append("<div class='scatter'>ms scatter</div>");
+    $(".return").append("<div class='scatter'>MS Scatter</div>");
     $(".scatter").css({
         width: "230px",
         height: "60px",
@@ -237,8 +211,6 @@ function  scatter() {
         top: "613px",
         left: "696px",
         lineHeight: "60px"
-        // backgroundColor: "transparent",
-
     });
     $(".scatter").hover(function () {
         $(".scatter").css({
@@ -265,14 +237,10 @@ function  scatter() {
         processData: false,
         contentType: false,
         success: function (data) {
-            // var script = data['script']
-            // var div = data['div']
             window.open("/search/ms_scatter/","_blank");
-            // $("body").append(div)
-            // $("body")
         },
         error: function (err) {
-            alert("ajax错误代码："+err.status);
+            alert("ajax error code："+err.status);
         }
         })
     })
